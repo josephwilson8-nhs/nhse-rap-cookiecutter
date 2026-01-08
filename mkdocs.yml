@@ -1,0 +1,92 @@
+site_name: NHS RAP Cookiecutter Template
+site_description: A standardized project structure for NHS England Reproducible Analytical Pipelines (RAP)
+site_author: NHS England - Data Science Team
+site_url: https://nhsengland.github.io/nhs-rap-cookiecutter
+repo_url: https://github.com/nhsengland/nhs-rap-cookiecutter
+repo_name: nhs-rap-cookiecutter
+edit_uri: edit/main/docs/content/
+docs_dir: docs/content
+
+theme:
+  name: material
+  language: en
+  custom_dir: docs/overrides
+  palette:
+    scheme: default
+    primary: indigo
+  font:
+    text: Roboto
+  logo: images/logo/nhs-blue-on-white.jpg
+  favicon: images/favicon/favicon.ico
+  features:
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - toc.integrate
+  icon:
+    admonition:
+      <type>: material/alert
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Usage Guide: usage.md
+  - Contributing: contributing.md
+
+extra_css:
+  - stylesheets/nhs_style.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/nhsengland/nhs-rap-cookiecutter
+    - icon: fontawesome/solid/envelope
+      link: mailto:datascience@nhs.net
+  generator: false
+
+copyright: Copyright &copy; 2026 Crown Copyright (NHS England)
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - pymdownx.emoji
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+  - md_in_html
+  - footnotes
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mermaid.mjs
+
+watch:
+  - docs/overrides
