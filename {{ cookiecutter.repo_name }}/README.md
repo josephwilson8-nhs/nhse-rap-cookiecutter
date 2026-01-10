@@ -1,6 +1,8 @@
 # {{cookiecutter.project_name}}
 
-<a target="_blank" href="https://github.com/nhs-england/nhs-rap-cookiecutter">
+<!-- TODO: Update to nhsengland organization once transferred -->
+<!-- <a target="_blank" href="https://github.com/nhsengland/nhs-rap-cookiecutter"> -->
+<a target="_blank" href="https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter">
     <img src="https://img.shields.io/badge/NHS%20RAP-Project%20template-005EB8?logo=cookiecutter" />
 </a>
 
@@ -58,4 +60,3 @@
 ```
 
 --------
-
