@@ -2,25 +2,70 @@
 
 ## Creating a New Project
 
-To create a new NHS RAP project, run:
+There are two ways to create a new NHS RAP project:
+
+### Method 1: Using the NHS RAP Template CLI
+
+If you installed the `nhs-rap-cookiecutter` package:
 
 ```bash
 nhs-rap-template
 ```
 
-This will prompt you for configuration options and generate a complete project structure.
+### Method 2: Using Official Cookiecutter
+
+If you want to use this alongside other cookiecutter templates or prefer the standard cookiecutter workflow:
+
+```bash
+# Install cookiecutter if needed
+pipx install cookiecutter
+# or: pip install cookiecutter
+
+# Create project from GitHub
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+
+# Or from a local clone
+cookiecutter /path/to/nhse-rap-cookiecutter
+```
+
+Both methods will prompt you for configuration options and generate a complete project structure.
+
+### Which Method Should I Use?
+
+**Use NHS RAP Template CLI when:**
+
+- You primarily work with NHS RAP projects
+- You want the simplest installation and usage
+- You prefer a dedicated command (`nhs-rap-template`)
+
+**Use Cookiecutter when:**
+
+- You work with multiple project templates
+- You want to integrate with existing cookiecutter workflows
+- You need cookiecutter's advanced features (replay, custom config files)
+- You prefer using a single tool for all your template needs
 
 ## Non-Interactive Mode
 
-For automation or CI/CD, use `--no-input` with a config file:
+For automation or CI/CD, both methods support non-interactive mode:
+
+**With NHS RAP Template CLI:**
 
 ```bash
 nhs-rap-template --no-input --config-file my-config.json
 ```
 
+**With Cookiecutter:**
+
+```bash
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --no-input
+```
+
 ## Using Specific Template Versions
 
-To use a specific version of the template:
+Both methods support using specific versions:
+
+**With NHS RAP Template CLI:**
 
 ```bash
 # Use latest development version
@@ -31,6 +76,16 @@ nhs-rap-template -c v1.0.0
 
 # Use a specific commit
 nhs-rap-template -c abc123def
+```
+
+**With Cookiecutter:**
+
+```bash
+# Use a specific branch
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --checkout main
+
+# Use a specific tag
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --checkout v1.0.0
 ```
 
 ## Configuration Options
@@ -64,16 +119,19 @@ The template creates a standardized RAP project with:
 After creating your project:
 
 1. **Navigate to the project**:
+
    ```bash
    cd your-project-name
    ```
 
 2. **Create environment** (if using UV):
+
    ```bash
    uv sync
    ```
 
 3. **Set up pre-commit** (optional but recommended):
+
    ```bash
    uv run pre-commit install
    ```
@@ -97,11 +155,13 @@ All generated files can be customized:
 ### Adding Dependencies
 
 With UV:
+
 ```bash
 uv add pandas numpy
 ```
 
 With pip:
+
 ```bash
 pip install pandas numpy
 pip freeze > requirements.txt
@@ -126,4 +186,73 @@ uv run mkdocs serve
 ```bash
 make lint    # Check code
 make format  # Format code
+```
+
+## Cookiecutter-Specific Features
+
+When using the official cookiecutter tool, you get additional features:
+
+### Using Cookiecutter Replay
+
+Cookiecutter saves your previous inputs. To recreate a project with the same configuration:
+
+```bash
+# Create first project
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+
+# Later, replay with same inputs
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --replay
+```
+
+### Using a Cookiecutter Config File
+
+Create `~/.cookiecutterrc` with default values:
+
+```yaml
+default_context:
+    author_name: "Jane Smith"
+    author_email: "jane.smith@nhs.net"
+    organization_name: "NHS England"
+    organization_email: "datascience@nhs.net"
+    python_version_number: "3.11"
+    environment_manager: "uv"
+    linting_and_formatting: "ruff"
+```
+
+Then cookiecutter will use these as defaults:
+
+```bash
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+# Will pre-fill with your defaults!
+```
+
+### Using Multiple Templates
+
+With cookiecutter, you can easily switch between different templates:
+
+```bash
+# NHS RAP template for analytical projects
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+
+# Different template for web applications
+cookiecutter gh:cookiecutter/cookiecutter-django
+
+# Your organization's custom template
+cookiecutter gh:your-org/your-template
+```
+
+### Templating from Local Directory
+
+Useful when developing or customizing the template:
+
+```bash
+# Clone the template
+git clone https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+
+# Make local modifications
+cd nhse-rap-cookiecutter
+# ... edit template files ...
+
+# Use your modified template
+cookiecutter ../nhse-rap-cookiecutter
 ```

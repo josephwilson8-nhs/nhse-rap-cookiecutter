@@ -1,228 +1,179 @@
 # Contributing
 
-We welcome contributions to the NHS RAP Cookiecutter Template!
+We welcome contributions to the NHS RAP Cookiecutter Template.
 
-## Getting Started
+## Development Setup
 
-1. Fork the repository
-2. Clone your fork:
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/YOUR_USERNAME/nhs-rap-cookie-cutter.git
-   cd nhs-rap-cookie-cutter
+   git clone https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+   cd nhse-rap-cookiecutter
    ```
-3. Set up the development environment:
+
+2. Install dependencies:
+
    ```bash
-   uv sync
+   uv sync --all-extras
+   ```
+
+3. Install pre-commit hooks:
+
+   ```bash
+   uv run pre-commit install
    ```
 
 ## Making Changes
 
-### Running Tests
+Create a branch for your changes:
 
 ```bash
-uv run pytest tests/
+git checkout -b feature/your-feature-name
+```
+
+### Running Tests
+
+All tests must pass before submitting changes:
+
+```bash
+uv run pytest tests/unittests/ -v
+```
+
+With coverage:
+
+```bash
+uv run pytest tests/unittests/ --cov=nhse_rap_cookiecutter --cov-report=term-missing
 ```
 
 ### Code Quality
 
-We use `ruff` for formatting and linting:
+Format and lint before committing:
 
 ```bash
-# Format code
 uv run ruff format .
-
-# Check for issues
 uv run ruff check .
 ```
 
 ### Testing the Template
 
-Generate a test project:
+Generate a test project to verify your changes:
 
 ```bash
 uv run nhs-rap-template --no-input
 ```
 
-## Submitting Changes
-
-1. Create a new branch for your changes
-2. Make your changes and commit them
-3. Push to your fork
-4. Open a pull request
-
 ## Code Standards
 
-- Follow existing code patterns
-- Add tests for new functionality
-- Update documentation as needed
-- Use descriptive commit messages
-    ------
-    ValueError
-        If the specified method is not recognized.
+| Standard | Description |
+|----------|-------------|
+| **Type hints** | Use type hints for all function parameters and return values |
+| **Docstrings** | Write Google-style docstrings for all functions and classes |
+| **Naming** | Use descriptive variable and function names |
+| **Paths** | Use `pathlib.Path` instead of string paths |
+| **Logging** | Use `loguru` for logging (not the standard `logging` module) |
+| **Formatting** | Code is formatted with `ruff format` |
+| **Linting** | Code passes `ruff check` with no errors |
+
+### Example Docstring
+
+```python
+def process_data(input_path: Path, config: dict) -> pd.DataFrame:
+    """Process raw data according to configuration.
+
+    Args:
+        input_path: Path to the input CSV file.
+        config: Configuration dictionary with processing options.
+
+    Returns:
+        Processed DataFrame with standardised columns.
+
+    Raises:
+        FileNotFoundError: If input_path does not exist.
+        ValueError: If config is missing required keys.
     """
 ```
 
 ## Testing Standards
 
-### Testing Framework
+Tests are organised in `tests/unittests/` using pytest:
 
-- **Tool**: `pytest` with coverage reporting
-- **Structure**: Class-based test organization with separate `unit/` and `e2e/` test directories
-- **Coverage**: Aim for >90% test coverage
-- **Fixtures**: Defined in `conftest.py` files
-
-### Test Organization
-
-```text
-tests/
-├── __init__.py
-├── conftest.py          # Shared fixtures
-├── unit/                # Unit tests (fast, isolated)
-│   ├── test_core.py
-│   ├── test_filters.py
-│   └── ...
-└── e2e/                 # End-to-end tests (integration)
-    ├── test_pipeline.py
-    └── ...
-```
-
-### Running Tests
-
-```bash
-uv run python -m pytest # (1)!
-uv run python -m pytest --cov=quick_metric # (2)!
-uv run python -m pytest tests/unit/ # (3)!
-uv run python -m pytest tests/e2e/ # (4)!
-```
-
-1. Run all tests in the project
-2. Run tests with coverage reporting
-3. Run only unit tests (fast, isolated tests)
-4. Run only end-to-end tests (integration tests)
-
-### Test Organization Pattern
-
-Tests are organized using classes, with each function being tested having its own class:
-
-```python
-class TestGenerateMetrics:
-    """Test cases for the generate_metrics function."""
-
-    def test_generate_metrics_with_valid_config(self):
-        """Test generate_metrics with a valid configuration."""
-        
-    def test_generate_metrics_raises_error_with_invalid_method(self):
-        """Test generate_metrics raises error for invalid method."""
-
-class TestFilterData:
-    """Test cases for the filter_data function."""
-    
-    def test_filter_data_with_simple_condition(self):
-        """Test filter_data with a simple condition."""
-```
-
-### Test Naming Convention
-
-- **Test files**: `test_<module_name>.py`
-- **Test classes**: `Test<FunctionName>` (one class per function being tested)
-- **Test methods**: `test_<function_being_tested>_<scenario>`
+| Guideline | Description |
+|-----------|-------------|
+| **Test classes** | Organise tests in classes for clear grouping |
+| **Single responsibility** | Each test method should test ONE behaviour |
+| **Parametrize** | Use `pytest.mark.parametrize` for multiple input variations |
+| **Fixtures** | Use `tmp_path` fixtures for file system operations |
+| **Assertions** | Assert exact expected values, not fuzzy matching |
 
 ## Dependency Management
 
-### Tool
+Dependencies are managed in `pyproject.toml`:
 
-- **Primary**: `uv` for fast dependency resolution and virtual environment management
-- **Fallback**: `pip` is supported but `uv` is preferred
+- `dependencies` - Runtime dependencies
+- `dev` - Development dependencies (pytest, ruff, etc.)
+- `docs` - Documentation dependencies (mkdocs, etc.)
 
-### Adding Dependencies
-
-1. Add to `pyproject.toml` in the appropriate section:
-   - `dependencies` for runtime dependencies
-   - `dev` for development dependencies
-   - `docs` for documentation dependencies
-
-2. Update the lock file:
+Update the lock file after changes:
 
 ```bash
-# Update dependency lock file after changes
 uv lock
 ```
 
 ## Pull Request Process
 
-1. **Fork and Clone**: Fork the repository and clone your fork
-2. **Branch**: Create a feature branch from `main`
-3. **Develop**: Make your changes following the code standards
-4. **Test**: Ensure all tests pass and add new tests for your changes
-5. **Format**: Run `ruff` formatting and linting
-6. **Documentation**: Update documentation if needed
-7. **Commit**: Use clear, descriptive commit messages
-8. **Pull Request**: Create a PR with a clear description
+1. Create a feature branch from `main`
+2. Make your changes following the code standards
+3. Ensure all tests pass
+4. Run formatting and linting
+5. Update documentation if needed
+6. Create a pull request with a clear description
 
 ### Commit Message Format
 
 ```text
 type(scope): brief description
 
-Longer explanation if needed
-
-- Bullet points for multiple changes
-- Reference issues: Fixes #123
+Longer explanation if needed.
 ```
 
 Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
-## Development Workflow
+## Pre-commit Hooks
 
-### Setup
+The following hooks run automatically on commit:
 
-```bash
-git clone https://github.com/your-username/quick_metric.git # (1)!
-cd quick_metric # (2)!
-uv venv # (3)!
-source .venv/bin/activate # (4)!
-uv pip install -e ".[dev,docs]" # (5)!
-uv pip install pre-commit # (6)!
-uv run pre-commit install # (7)!
-```
+| Hook | Purpose |
+|------|---------|
+| **ruff** | Linting with auto-fix |
+| **ruff-format** | Code formatting |
+| **check-yaml** | Validate YAML files |
+| **check-toml** | Validate TOML files |
+| **gitleaks** | Check for hardcoded secrets |
 
-1. Clone your fork of the repository
-2. Navigate to the project directory
-3. Create a virtual environment using uv
-4. Activate the virtual environment (On Windows: `.venv\Scripts\activate`)
-5. Install the package in development mode with all dependencies
-6. Install pre-commit for code quality hooks
-7. Set up pre-commit hooks to run automatically on commits
+## Documentation
 
-### Pre-commit Checks
-
-Before committing, run these quality checks:
+Documentation is built with MkDocs Material. To preview changes:
 
 ```bash
-uv run ruff format quick_metric/ tests/ # (1)!
-uv run ruff check quick_metric/ tests/ # (2)!
-uv run python -m pytest --cov=quick_metric # (3)!
-make lint test # (4)!
+make docs-serve
 ```
 
-1. Format code automatically
-2. Check for linting and code quality issues
-3. Run tests with coverage reporting
-4. Alternative: Use Makefile commands for all checks
+Or directly with the required flag:
 
-### Pre-commit Hooks
+```bash
+uv run mkdocs serve --livereload
+```
 
-We use pre-commit hooks to automatically check code quality:
+!!! warning "MkDocs Live Reload Bug"
+    Due to a bug in this version of MkDocs, the `--livereload` flag is required for live reloading to work properly. The `make docs-serve` command includes this flag automatically.
 
-- **ruff**: Formatting and linting
-- **ruff-format**: Code formatting
-
-The hooks run automatically on `git commit` and will prevent commits that don't meet our standards.
+Then visit `http://localhost:8000`.
 
 ## Getting Help
 
-- **Issues**: Use GitHub Issues for bug reports and feature requests
+- **Issues**: Use [GitHub Issues](https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter/issues) for bug reports and feature requests
 - **Discussions**: Use GitHub Discussions for questions and ideas
-- **Documentation**: Check the docs at [project documentation site]
 
-Thank you for contributing to Quick Metric! 🚀
+## Licence
+
+By contributing, you agree that your contributions will be licensed under the MIT Licence. Documentation contributions are released under Crown Copyright with the Open Government Licence v3.0.

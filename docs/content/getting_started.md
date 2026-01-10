@@ -12,43 +12,71 @@ This guide will help you install **NHS RAP Cookiecutter Template** and create yo
 
 ## Installation
 
-Choose your preferred installation method:
+This package is not yet published to PyPI. Install directly from GitHub:
 
 === "pipx (Recommended)"
 
     Since this is a command-line tool, pipx is the recommended installation method:
 
     ```bash
-    pipx install nhs-rap-cookiecutter
+    pipx install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
     ```
+    
+    [Learn more about pipx](https://pipx.pypa.io/stable/)
 
 === "uv"
 
     ```bash
-    uv tool install nhs-rap-cookiecutter
+    uv tool install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
     ```
+    
+    [Learn more about uv](https://docs.astral.sh/uv/)
 
 === "pip"
 
     ```bash
-    pip install nhs-rap-cookiecutter
+    pip install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
     ```
 
-cd /home/jowi60/side_projects/nhs-rap-cookie-cutter && ls -la *.yml 2>/dev/null || echo "No .yml files in root"! tip "Why pipx or uv tool?"
+!!! tip "Why pipx or uv tool?"
     `pipx` and `uv tool` install command-line tools in isolated environments, preventing dependency conflicts with your other Python projects.
 
 ## Creating Your First Project
 
-Once installed, create a new project:
+### Option 1: Using NHS RAP Template CLI
+
+If you installed the package with pipx/uv/pip:
 
 ```bash
 nhs-rap-template
 ```
 
-You'll be prompted for:
+### Option 2: Using Cookiecutter Directly
+
+If you prefer to use the standard cookiecutter tool (useful when working with multiple templates):
+
+```bash
+# First, install cookiecutter if you haven't
+pipx install cookiecutter
+
+# Then create your project
+cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+```
+
+!!! tip "Why use cookiecutter directly?"
+    Using the official cookiecutter tool allows you to:
+
+    - Use multiple cookiecutter templates in your workflow
+    - Leverage cookiecutter's replay feature to recreate projects
+    - Use cookiecutter's config file in `~/.cookiecutterrc`
+    - Integrate with existing cookiecutter-based workflows
+
+### What You'll Be Prompted For
+
+Both methods will prompt you for:
 
 - Project name
-- Author information  
+- Author information
 - Organization details
 - Technical configuration (Python version, environment manager, etc.)
 
@@ -57,8 +85,8 @@ You'll be prompted for:
 ```bash
 $ nhs-rap-template
 project_name [project_name]: My NHS Analysis
-repo_name [my_nhs_analysis]: 
-module_name [my_nhs_analysis]: 
+repo_name [my_nhs_analysis]:
+module_name [my_nhs_analysis]:
 author_name [Your Name]: Jane Smith
 author_email [your.email@example.com]: jane.smith@nhs.net
 organization_name [Your Organization]: NHS England
@@ -102,21 +130,4 @@ uv run mkdocs serve
 
 - Read the [Usage Guide](usage.md) for detailed information on using the template
 - Explore the generated project structure
-- Check out [Contributing](contributing.md) if you want to improve the template
-
-## Development Setup
-
-For contributing to the template tool itself:
-
-```bash
-git clone https://github.com/nhsengland/nhs-rap-cookiecutter.git
-cd nhs-rap-cookiecutter
-uv sync --all-extras
-uv run pre-commit install
-```
-
-Then make your changes and run tests:
-
-```bash
-uv run pytest tests/
-```
+- See the [Contributing Guide](contributing.md) for development setup
