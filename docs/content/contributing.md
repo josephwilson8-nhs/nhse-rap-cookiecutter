@@ -7,7 +7,7 @@ We welcome contributions to the NHS RAP Cookiecutter Template.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+   git clone https://github.com/nhsengland/nhse-rap-cookiecutter.git
    cd nhse-rap-cookiecutter
    ```
 
@@ -171,7 +171,7 @@ Then visit `http://localhost:8000`.
 
 ## Getting Help
 
-- **Issues**: Use [GitHub Issues](https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter/issues) for bug reports and feature requests
+- **Issues**: Use [GitHub Issues](https://github.com/nhsengland/nhse-rap-cookiecutter/issues) for bug reports and feature requests
 - **Discussions**: Use GitHub Discussions for questions and ideas
 
 ## Licence

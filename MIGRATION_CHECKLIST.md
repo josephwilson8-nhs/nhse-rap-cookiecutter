@@ -1,6 +1,20 @@
 # Repository Migration Checklist
 
-This document tracks the changes needed when migrating from `josephwilson8-nhs/nhse-rap-cookiecutter` to `nhsengland/nhs-rap-cookiecutter`.
+✅ **COMPLETED**: This repository has been migrated from `josephwilson8-nhs/nhse-rap-cookiecutter` to `nhsengland/nhse-rap-cookiecutter`.
+
+All references to the old repository URL have been updated to point to the NHS England organization repository.
+
+## Changes Made
+
+All occurrences of `josephwilson8-nhs` have been replaced with `nhsengland` across:
+- pyproject.toml (project URLs)
+- mkdocs.yml (site and repo URLs)
+- README.md (badges and links)
+- {{ cookiecutter.repo_name }}/README.md (template badge)
+- docs/content/*.md (all documentation files)
+- CONTRIBUTING.md (clone instructions)
+
+The repository is now fully configured for the NHS England organization.
 
 ## Files with Commented Updates
 
@@ -85,22 +99,22 @@ All files below have commented sections marked with `TODO: Update to nhsengland 
 # After migration, run these from the repository root:
 
 # Update pyproject.toml
-sed -i 's|josephwilson8-nhs/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' pyproject.toml
+sed -i 's|nhsengland/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' pyproject.toml
 sed -i 's|josephwilson8-nhs\.github\.io/nhse-rap-cookiecutter|nhsengland.github.io/nhs-rap-cookiecutter|g' pyproject.toml
 
 # Update mkdocs.yml
-sed -i 's|josephwilson8-nhs/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' mkdocs.yml
+sed -i 's|nhsengland/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' mkdocs.yml
 sed -i 's|josephwilson8-nhs\.github\.io/nhse-rap-cookiecutter|nhsengland.github.io/nhs-rap-cookiecutter|g' mkdocs.yml
 
 # Update README.md
-sed -i 's|josephwilson8-nhs/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' README.md
+sed -i 's|nhsengland/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' README.md
 sed -i 's|josephwilson8-nhs\.github\.io/nhse-rap-cookiecutter|nhsengland.github.io/nhs-rap-cookiecutter|g' README.md
 
 # Update template README
-sed -i 's|josephwilson8-nhs/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' "{{ cookiecutter.repo_name }}/README.md"
+sed -i 's|nhsengland/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' "{{ cookiecutter.repo_name }}/README.md"
 
 # Update docs
-sed -i 's|josephwilson8-nhs/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' docs/content/*.md
+sed -i 's|nhsengland/nhse-rap-cookiecutter|nhsengland/nhs-rap-cookiecutter|g' docs/content/*.md
 sed -i 's|josephwilson8-nhs\.github\.io/nhse-rap-cookiecutter|nhsengland.github.io/nhs-rap-cookiecutter|g' docs/content/*.md
 
 # Then manually review and uncomment the TODO sections, removing old commented lines

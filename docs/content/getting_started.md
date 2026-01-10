@@ -19,7 +19,7 @@ This package is not yet published to PyPI. Install directly from GitHub:
     Since this is a command-line tool, pipx is the recommended installation method:
 
     ```bash
-    pipx install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+    pipx install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
     ```
     
     [Learn more about pipx](https://pipx.pypa.io/stable/)
@@ -27,7 +27,7 @@ This package is not yet published to PyPI. Install directly from GitHub:
 === "uv"
 
     ```bash
-    uv tool install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+    uv tool install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
     ```
     
     [Learn more about uv](https://docs.astral.sh/uv/)
@@ -35,7 +35,7 @@ This package is not yet published to PyPI. Install directly from GitHub:
 === "pip"
 
     ```bash
-    pip install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+    pip install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
     ```
 
 !!! tip "Why pipx or uv tool?"
@@ -60,7 +60,7 @@ If you prefer to use the standard cookiecutter tool (useful when working with mu
 pipx install cookiecutter
 
 # Then create your project
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 ```
 
 !!! tip "Why use cookiecutter directly?"

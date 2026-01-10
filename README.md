@@ -1,9 +1,9 @@
 # NHS RAP Cookiecutter Template
 
-[![Project Status: WIP](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow)](https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter)
+[![Project Status: WIP](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow)](https://github.com/nhsengland/nhse-rap-cookiecutter)
 [![Python: 3.10 | 3.11 | 3.12](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
 [![Cookiecutter](https://img.shields.io/badge/Cookiecutter-Template-D4AA00?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter)
-[![tests](https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter/actions/workflows/tests.yml/badge.svg)](https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter/actions/workflows/tests.yml)
+[![tests](https://github.com/nhsengland/nhse-rap-cookiecutter/actions/workflows/tests.yml/badge.svg)](https://github.com/nhsengland/nhse-rap-cookiecutter/actions/workflows/tests.yml)
 [![Code Style: Ruff](https://img.shields.io/badge/Code%20Style-Ruff-D7FF64.svg)](https://github.com/astral-sh/ruff)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
@@ -39,7 +39,7 @@ This template requires Python 3.10 or higher. This package is not published to P
 **pipx** (recommended for CLI tools):
 
 ```bash
-pipx install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+pipx install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
 ```
 
 See the [pipx documentation](https://pipx.pypa.io/stable/) for installation instructions.
@@ -47,7 +47,7 @@ See the [pipx documentation](https://pipx.pypa.io/stable/) for installation inst
 **uv**:
 
 ```bash
-uv tool install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+uv tool install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
 ```
 
 See the [uv documentation](https://docs.astral.sh/uv/) for installation instructions.
@@ -55,7 +55,7 @@ See the [uv documentation](https://docs.astral.sh/uv/) for installation instruct
 **pip**:
 
 ```bash
-pip install git+https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+pip install git+https://github.com/nhsengland/nhse-rap-cookiecutter.git
 ```
 
 ## Quick Start
@@ -69,7 +69,7 @@ nhs-rap-template
 Or use the official cookiecutter command:
 
 ```bash
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 ```
 
 ## Configuration Options
@@ -140,7 +140,7 @@ make docs                    # Build documentation
 
 ## Documentation
 
-Full documentation: [https://josephwilson8-nhs.github.io/nhse-rap-cookiecutter](https://josephwilson8-nhs.github.io/nhse-rap-cookiecutter)
+Full documentation: [https://nhsengland.github.io/nhse-rap-cookiecutter](https://nhsengland.github.io/nhse-rap-cookiecutter)
 
 ## Development
 

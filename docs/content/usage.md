@@ -22,7 +22,7 @@ pipx install cookiecutter
 # or: pip install cookiecutter
 
 # Create project from GitHub
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 
 # Or from a local clone
 cookiecutter /path/to/nhse-rap-cookiecutter
@@ -58,7 +58,7 @@ nhs-rap-template --no-input --config-file my-config.json
 **With Cookiecutter:**
 
 ```bash
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --no-input
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter --no-input
 ```
 
 ## Using Specific Template Versions
@@ -82,10 +82,10 @@ nhs-rap-template -c abc123def
 
 ```bash
 # Use a specific branch
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --checkout main
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter --checkout main
 
 # Use a specific tag
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --checkout v1.0.0
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter --checkout v1.0.0
 ```
 
 ## Configuration Options
@@ -198,10 +198,10 @@ Cookiecutter saves your previous inputs. To recreate a project with the same con
 
 ```bash
 # Create first project
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 
 # Later, replay with same inputs
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter --replay
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter --replay
 ```
 
 ### Using a Cookiecutter Config File
@@ -222,7 +222,7 @@ default_context:
 Then cookiecutter will use these as defaults:
 
 ```bash
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 # Will pre-fill with your defaults!
 ```
 
@@ -232,7 +232,7 @@ With cookiecutter, you can easily switch between different templates:
 
 ```bash
 # NHS RAP template for analytical projects
-cookiecutter gh:josephwilson8-nhs/nhse-rap-cookiecutter
+cookiecutter gh:nhsengland/nhse-rap-cookiecutter
 
 # Different template for web applications
 cookiecutter gh:cookiecutter/cookiecutter-django
@@ -247,7 +247,7 @@ Useful when developing or customizing the template:
 
 ```bash
 # Clone the template
-git clone https://github.com/josephwilson8-nhs/nhse-rap-cookiecutter.git
+git clone https://github.com/nhsengland/nhse-rap-cookiecutter.git
 
 # Make local modifications
 cd nhse-rap-cookiecutter
